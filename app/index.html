@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PatasInn — Hotel para cães e gatos</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <header class="topo">
+    <div>
+      <span class="logo">PatasInn</span>
+      <span class="slogan">Hotel para cães e gatos</span>
+    </div>
+    <span class="hoje" id="hoje"></span>
+  </header>
+
+  <main class="layout">
+    <section class="painel">
+      <h2>Nova reserva</h2>
+      <form id="formReserva" novalidate>
+        <fieldset>
+          <legend>Tutor</legend>
+          <label for="tutor">Nome do tutor</label>
+          <input id="tutor" type="text" autocomplete="off">
+          <label for="telefone">Celular com DDD</label>
+          <input id="telefone" type="tel" placeholder="(11) 98765-4321" autocomplete="off">
+        </fieldset>
+
+        <fieldset>
+          <legend>Pet</legend>
+          <label for="nomePet">Nome do pet</label>
+          <input id="nomePet" type="text" autocomplete="off">
+          <div class="linha">
+            <div>
+              <label for="especie">Espécie</label>
+              <select id="especie">
+                <option value="cao">Cão</option>
+                <option value="gato">Gato</option>
+              </select>
+            </div>
+            <div>
+              <label for="porte">Porte</label>
+              <select id="porte">
+                <option value="P">P — até 10 kg</option>
+                <option value="M">M — de 10 a 25 kg</option>
+                <option value="G">G — acima de 25 kg</option>
+              </select>
+            </div>
+          </div>
+          <div class="linha">
+            <div>
+              <label for="idade">Idade (meses)</label>
+              <input id="idade" type="number" min="0" value="12">
+            </div>
+            <div>
+              <label for="vacina">Vacina válida até</label>
+              <input id="vacina" type="date">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Hospedagem</legend>
+          <div class="linha">
+            <div>
+              <label for="entrada">Entrada</label>
+              <input id="entrada" type="date">
+            </div>
+            <div>
+              <label for="saida">Saída</label>
+              <input id="saida" type="date">
+            </div>
+          </div>
+          <label for="banhos">Banhos</label>
+          <input id="banhos" type="number" min="0" value="0">
+          <p class="ajuda" id="ajudaBanhos"></p>
+        </fieldset>
+
+        <button type="submit" class="botao">Confirmar reserva</button>
+        <p class="mensagem" id="msgReserva" role="status"></p>
+      </form>
+    </section>
+
+    <aside class="painel orcamento">
+      <h2>Orçamento</h2>
+      <dl>
+        <dt>Diárias</dt><dd id="oDiarias">0</dd>
+        <dt>Valor da diária</dt><dd id="oDiaria">R$ 0,00</dd>
+        <dt>Desconto</dt><dd id="oDesconto">0%</dd>
+        <dt>Banhos</dt><dd id="oBanhos">R$ 0,00</dd>
+      </dl>
+      <p class="total">Total <strong id="oTotal">R$ 0,00</strong></p>
+    </aside>
+
+    <section class="painel reservas">
+      <h2>Reservas confirmadas</h2>
+      <ul id="listaReservas"></ul>
+      <p class="mensagem" id="msgLista" role="status"></p>
+    </section>
+  </main>
+
+  <script src="js/regras.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
